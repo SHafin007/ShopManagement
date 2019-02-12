@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Shop.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tag)
+        </th>
+        <th>
+            Added By
+        </th>
+        <th>
+            Last Update
+        </th>
+        <th>
+            Add Date
+        </th>
+        <th>
+            Brand
+        </th>
+        <th>
+            Catagory
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.addedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastUpdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productAddedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Catagory.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unit.name)
+        </td>
+        <td>
+            @if (User.IsInRole("Admin"))
+            {
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) 
+            @Html.ActionLink("Details", "Details", new { id = item.id }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            }
+            
+        </td>
+    </tr>
+}
+
+</table>

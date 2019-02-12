@@ -1,0 +1,147 @@
+﻿@model Shop.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.slary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.slary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.addedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.addedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nationalIdNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nationalIdNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.joinDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.joinDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeAddedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeAddedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Religion.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Religion.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

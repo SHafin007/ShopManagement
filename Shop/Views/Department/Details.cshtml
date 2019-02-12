@@ -1,0 +1,23 @@
+﻿@model Shop.Models.Department
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h3 align="center">Details of @Html.DisplayFor(model => model.name)</h3><br />
+
+<div>
+    
+    <dl class="dl-horizontal">
+        
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class = "btn btn-success btn-sm" })
+    <a class="btn btn-primary" href="/Department/Index/">Back To Index</a>
+</p>

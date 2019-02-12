@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShopModelStoreContainer" CdmEntityContainer="ShopEntities">
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="ShopModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Catagories">
+      <EntityTypeMapping TypeName="ShopModel.Catagory">
+        <MappingFragment StoreEntitySet="Catagory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="ShopModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="ShopModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="regionId" ColumnName="regionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="ShopModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Designations">
+      <EntityTypeMapping TypeName="ShopModel.Designation">
+        <MappingFragment StoreEntitySet="Designation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="ShopModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="slary" ColumnName="slary" />
+          <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+          <ScalarProperty Name="nationalIdNumber" ColumnName="nationalIdNumber" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="genderId" ColumnName="genderId" />
+          <ScalarProperty Name="departmentId" ColumnName="departmentId" />
+          <ScalarProperty Name="designationId" ColumnName="designationId" />
+          <ScalarProperty Name="religionId" ColumnName="religionId" />
+          <ScalarProperty Name="cityId" ColumnName="cityId" />
+          <ScalarProperty Name="joinDate" ColumnName="joinDate" />
+          <ScalarProperty Name="employeeAddedDate" ColumnName="employeeAddedDate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeetImages">
+      <EntityTypeMapping TypeName="ShopModel.EmployeetImage">
+        <MappingFragment StoreEntitySet="EmployeetImage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="empId" ColumnName="empId" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="ShopModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="ShopModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="productStockId" ColumnName="productStockId" />
+          <ScalarProperty Name="unitId" ColumnName="unitId" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+          <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizations">
+      <EntityTypeMapping TypeName="ShopModel.Organization">
+        <MappingFragment StoreEntitySet="Organization">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="ShopModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tag" ColumnName="tag" />
+          <ScalarProperty Name="catagoryId" ColumnName="catagoryId" />
+          <ScalarProperty Name="brandId" ColumnName="brandId" />
+          <ScalarProperty Name="unitId" ColumnName="unitId" />
+          <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="lastUpdate" ColumnName="lastUpdate" />
+          <ScalarProperty Name="productAddedDate" ColumnName="productAddedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductImages">
+      <EntityTypeMapping TypeName="ShopModel.ProductImage">
+        <MappingFragment StoreEntitySet="ProductImage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchases">
+      <EntityTypeMapping TypeName="ShopModel.Purchase">
+        <MappingFragment StoreEntitySet="Purchase">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="purchaseDate" ColumnName="purchaseDate" />
+          <ScalarProperty Name="unitId" ColumnName="unitId" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="supplierId" ColumnName="supplierId" />
+          <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="ShopModel.Region">
+        <MappingFragment StoreEntitySet="Region">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Religions">
+      <EntityTypeMapping TypeName="ShopModel.Religion">
+        <MappingFragment StoreEntitySet="Religion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stocks">
+      <EntityTypeMapping TypeName="ShopModel.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="unitId" ColumnName="unitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="ShopModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+          <ScalarProperty Name="nationalIdNumber" ColumnName="nationalIdNumber" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="genderId" ColumnName="genderId" />
+          <ScalarProperty Name="departmentId" ColumnName="departmentId" />
+          <ScalarProperty Name="designationId" ColumnName="designationId" />
+          <ScalarProperty Name="religionId" ColumnName="religionId" />
+          <ScalarProperty Name="cityId" ColumnName="cityId" />
+          <ScalarProperty Name="orgainzationId" ColumnName="orgainzationId" />
+          <ScalarProperty Name="SupplierAddedDate" ColumnName="SupplierAddedDate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="ShopModel.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="ShopModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ShopModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+          <ScalarProperty Name="userAddedDate" ColumnName="userAddedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

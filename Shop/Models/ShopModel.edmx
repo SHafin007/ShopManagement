@@ -1,0 +1,1660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Catagory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+          <Property Name="countryId" Type="int" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+          <Property Name="regionId" Type="int" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+          <Property Name="address" Type="nvarchar" MaxLength="225" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="slary" Type="money" />
+          <Property Name="addedBy" Type="nvarchar" MaxLength="25" />
+          <Property Name="nationalIdNumber" Type="nvarchar" MaxLength="25" />
+          <Property Name="dateOfBirth" Type="nvarchar" MaxLength="25" />
+          <Property Name="genderId" Type="int" />
+          <Property Name="departmentId" Type="int" />
+          <Property Name="designationId" Type="int" />
+          <Property Name="religionId" Type="int" />
+          <Property Name="cityId" Type="int" />
+          <Property Name="joinDate" Type="nvarchar" MaxLength="25" />
+          <Property Name="employeeAddedDate" Type="datetime" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
+        <EntityType Name="EmployeetImage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empId" Type="int" />
+          <Property Name="image" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderDate" Type="datetime" />
+          <Property Name="productId" Type="int" />
+          <Property Name="productStockId" Type="int" />
+          <Property Name="unitId" Type="int" />
+          <Property Name="price" Type="money" />
+          <Property Name="Total" Type="money" StoreGeneratedPattern="Computed" />
+          <Property Name="paidAmount" Type="money" />
+          <Property Name="addedBy" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+          <Property Name="address" Type="nvarchar" MaxLength="225" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+          <Property Name="code" Type="nvarchar" MaxLength="25" />
+          <Property Name="description" Type="nvarchar" MaxLength="225" />
+          <Property Name="price" Type="int" />
+          <Property Name="tag" Type="nvarchar" MaxLength="25" />
+          <Property Name="catagoryId" Type="int" />
+          <Property Name="brandId" Type="int" />
+          <Property Name="unitId" Type="int" />
+          <Property Name="addedBy" Type="nvarchar" MaxLength="25" />
+          <Property Name="empid" Type="int" />
+          <Property Name="lastUpdate" Type="datetime" />
+          <Property Name="productAddedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productId" Type="int" />
+          <Property Name="image" Type="varchar" MaxLength="200" />
+          <Property Name="dateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productId" Type="int" />
+          <Property Name="purchaseDate" Type="datetime" />
+          <Property Name="unitId" Type="int" />
+          <Property Name="price" Type="money" />
+          <Property Name="supplierId" Type="int" />
+          <Property Name="addedBy" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Religion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productId" Type="int" />
+          <Property Name="unitId" Type="int" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+          <Property Name="address" Type="nvarchar" MaxLength="225" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="addedBy" Type="nvarchar" MaxLength="25" />
+          <Property Name="nationalIdNumber" Type="nvarchar" MaxLength="25" />
+          <Property Name="dateOfBirth" Type="nvarchar" MaxLength="25" />
+          <Property Name="genderId" Type="int" />
+          <Property Name="departmentId" Type="int" />
+          <Property Name="designationId" Type="int" />
+          <Property Name="religionId" Type="int" />
+          <Property Name="cityId" Type="int" />
+          <Property Name="orgainzationId" Type="int" />
+          <Property Name="SupplierAddedDate" Type="datetime" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="25" />
+          <Property Name="password" Type="nvarchar(max)" />
+          <Property Name="roleId" Type="int" />
+          <Property Name="empid" Type="int" />
+          <Property Name="addedBy" Type="nvarchar" MaxLength="25" />
+          <Property Name="userAddedDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__City__countryId__09DE7BCC">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Country__regionI__0519C6AF">
+          <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+          <End Role="Country" Type="Self.Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Country">
+              <PropertyRef Name="regionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__cityId__21B6055D">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="cityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__depart__1ED998B2">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="departmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__design__1FCDBCEB">
+          <End Role="Designation" Type="Self.Designation" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designation">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="designationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__gender__1DE57479">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="genderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__religi__20C1E124">
+          <End Role="Religion" Type="Self.Religion" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Religion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="religionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employeet__empId__267ABA7A">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="EmployeetImage" Type="Self.EmployeetImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EmployeetImage">
+              <PropertyRef Name="empId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__productI__656C112C">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__productS__6477ECF3">
+          <End Role="Stock" Type="Self.Stock" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="productStockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__unitId__66603565">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="unitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__brandId__412EB0B6">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="brandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__catagor__403A8C7D">
+          <End Role="Catagory" Type="Self.Catagory" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catagory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="catagoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__empid__4316F928">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="empid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__unitId__4222D4EF">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="unitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductIm__produ__47DBAE45">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProductImage" Type="Self.ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProductImage">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Purchase__produc__5AEE82B9">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Purchase__suppli__59FA5E80">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="supplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Purchase__unitId__5BE2A6F2">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="unitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplier__cityId__5535A963">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="cityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplier__depart__52593CB8">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="departmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplier__design__534D60F1">
+          <End Role="Designation" Type="Self.Designation" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designation">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="designationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplier__gender__5070F446">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="genderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplier__orgain__5165187F">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="orgainzationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplier__religi__5441852A">
+          <End Role="Religion" Type="Self.Religion" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Religion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="religionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__empid__300424B4">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="empid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__roleId__2F10007B">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="roleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShopModelStoreContainer">
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Catagory" EntityType="Self.Catagory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Designation" EntityType="Self.Designation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeetImage" EntityType="Self.EmployeetImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductImage" EntityType="Self.ProductImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Religion" EntityType="Self.Religion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__City__countryId__09DE7BCC" Association="Self.FK__City__countryId__09DE7BCC">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Country__regionI__0519C6AF" Association="Self.FK__Country__regionI__0519C6AF">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Country" EntitySet="Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__cityId__21B6055D" Association="Self.FK__Employee__cityId__21B6055D">
+            <End Role="City" EntitySet="City" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__depart__1ED998B2" Association="Self.FK__Employee__depart__1ED998B2">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__design__1FCDBCEB" Association="Self.FK__Employee__design__1FCDBCEB">
+            <End Role="Designation" EntitySet="Designation" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__gender__1DE57479" Association="Self.FK__Employee__gender__1DE57479">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__religi__20C1E124" Association="Self.FK__Employee__religi__20C1E124">
+            <End Role="Religion" EntitySet="Religion" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employeet__empId__267ABA7A" Association="Self.FK__Employeet__empId__267ABA7A">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeetImage" EntitySet="EmployeetImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__productI__656C112C" Association="Self.FK__Orders__productI__656C112C">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__productS__6477ECF3" Association="Self.FK__Orders__productS__6477ECF3">
+            <End Role="Stock" EntitySet="Stock" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__unitId__66603565" Association="Self.FK__Orders__unitId__66603565">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__brandId__412EB0B6" Association="Self.FK__Product__brandId__412EB0B6">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__catagor__403A8C7D" Association="Self.FK__Product__catagor__403A8C7D">
+            <End Role="Catagory" EntitySet="Catagory" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__empid__4316F928" Association="Self.FK__Product__empid__4316F928">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__unitId__4222D4EF" Association="Self.FK__Product__unitId__4222D4EF">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductIm__produ__47DBAE45" Association="Self.FK__ProductIm__produ__47DBAE45">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductImage" EntitySet="ProductImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Purchase__produc__5AEE82B9" Association="Self.FK__Purchase__produc__5AEE82B9">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Purchase__suppli__59FA5E80" Association="Self.FK__Purchase__suppli__59FA5E80">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Purchase__unitId__5BE2A6F2" Association="Self.FK__Purchase__unitId__5BE2A6F2">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplier__cityId__5535A963" Association="Self.FK__Supplier__cityId__5535A963">
+            <End Role="City" EntitySet="City" />
+            <End Role="Supplier" EntitySet="Supplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplier__depart__52593CB8" Association="Self.FK__Supplier__depart__52593CB8">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Supplier" EntitySet="Supplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplier__design__534D60F1" Association="Self.FK__Supplier__design__534D60F1">
+            <End Role="Designation" EntitySet="Designation" />
+            <End Role="Supplier" EntitySet="Supplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplier__gender__5070F446" Association="Self.FK__Supplier__gender__5070F446">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Supplier" EntitySet="Supplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplier__orgain__5165187F" Association="Self.FK__Supplier__orgain__5165187F">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Supplier" EntitySet="Supplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplier__religi__5441852A" Association="Self.FK__Supplier__religi__5441852A">
+            <End Role="Religion" EntitySet="Religion" />
+            <End Role="Supplier" EntitySet="Supplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__empid__300424B4" Association="Self.FK__Users__empid__300424B4">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__roleId__2F10007B" Association="Self.FK__Users__roleId__2F10007B">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__brandId__412EB0B6" FromRole="Brand" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Catagory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__catagor__403A8C7D" FromRole="Catagory" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="countryId" Type="Int32" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__City__countryId__09DE7BCC" FromRole="City" ToRole="Country" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__cityId__21B6055D" FromRole="City" ToRole="Employee" />
+          <NavigationProperty Name="Suppliers" Relationship="Self.FK__Supplier__cityId__5535A963" FromRole="City" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="regionId" Type="Int32" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__City__countryId__09DE7BCC" FromRole="Country" ToRole="City" />
+          <NavigationProperty Name="Region" Relationship="Self.FK__Country__regionI__0519C6AF" FromRole="Country" ToRole="Region" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__depart__1ED998B2" FromRole="Department" ToRole="Employee" />
+          <NavigationProperty Name="Suppliers" Relationship="Self.FK__Supplier__depart__52593CB8" FromRole="Department" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__design__1FCDBCEB" FromRole="Designation" ToRole="Employee" />
+          <NavigationProperty Name="Suppliers" Relationship="Self.FK__Supplier__design__534D60F1" FromRole="Designation" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="slary" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="addedBy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="nationalIdNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="dateOfBirth" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="genderId" Type="Int32" />
+          <Property Name="departmentId" Type="Int32" />
+          <Property Name="designationId" Type="Int32" />
+          <Property Name="religionId" Type="Int32" />
+          <Property Name="cityId" Type="Int32" />
+          <Property Name="joinDate" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="employeeAddedDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Boolean" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Employee__cityId__21B6055D" FromRole="Employee" ToRole="City" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Employee__depart__1ED998B2" FromRole="Employee" ToRole="Department" />
+          <NavigationProperty Name="Designation" Relationship="Self.FK__Employee__design__1FCDBCEB" FromRole="Employee" ToRole="Designation" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK__Employee__gender__1DE57479" FromRole="Employee" ToRole="Gender" />
+          <NavigationProperty Name="Religion" Relationship="Self.FK__Employee__religi__20C1E124" FromRole="Employee" ToRole="Religion" />
+          <NavigationProperty Name="EmployeetImages" Relationship="Self.FK__Employeet__empId__267ABA7A" FromRole="Employee" ToRole="EmployeetImage" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__empid__4316F928" FromRole="Employee" ToRole="Product" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__empid__300424B4" FromRole="Employee" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="EmployeetImage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empId" Type="Int32" />
+          <Property Name="image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Employeet__empId__267ABA7A" FromRole="EmployeetImage" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__gender__1DE57479" FromRole="Gender" ToRole="Employee" />
+          <NavigationProperty Name="Suppliers" Relationship="Self.FK__Supplier__gender__5070F446" FromRole="Gender" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderDate" Type="DateTime" Precision="3" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="productStockId" Type="Int32" />
+          <Property Name="unitId" Type="Int32" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="paidAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="addedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Orders__productI__656C112C" FromRole="Orders" ToRole="Product" />
+          <NavigationProperty Name="Stock" Relationship="Self.FK__Orders__productS__6477ECF3" FromRole="Orders" ToRole="Stock" />
+          <NavigationProperty Name="Unit" Relationship="Self.FK__Orders__unitId__66603565" FromRole="Orders" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Suppliers" Relationship="Self.FK__Supplier__orgain__5165187F" FromRole="Organization" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="code" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="tag" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="catagoryId" Type="Int32" />
+          <Property Name="brandId" Type="Int32" />
+          <Property Name="unitId" Type="Int32" />
+          <Property Name="addedBy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="empid" Type="Int32" />
+          <Property Name="lastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="productAddedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Brand" Relationship="Self.FK__Product__brandId__412EB0B6" FromRole="Product" ToRole="Brand" />
+          <NavigationProperty Name="Catagory" Relationship="Self.FK__Product__catagor__403A8C7D" FromRole="Product" ToRole="Catagory" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Product__empid__4316F928" FromRole="Product" ToRole="Employee" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__productI__656C112C" FromRole="Product" ToRole="Orders" />
+          <NavigationProperty Name="Unit" Relationship="Self.FK__Product__unitId__4222D4EF" FromRole="Product" ToRole="Unit" />
+          <NavigationProperty Name="ProductImages" Relationship="Self.FK__ProductIm__produ__47DBAE45" FromRole="Product" ToRole="ProductImage" />
+          <NavigationProperty Name="Purchases" Relationship="Self.FK__Purchase__produc__5AEE82B9" FromRole="Product" ToRole="Purchase" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="dateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__ProductIm__produ__47DBAE45" FromRole="ProductImage" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="purchaseDate" Type="DateTime" Precision="3" />
+          <Property Name="unitId" Type="Int32" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="supplierId" Type="Int32" />
+          <Property Name="addedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Purchase__produc__5AEE82B9" FromRole="Purchase" ToRole="Product" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK__Purchase__suppli__59FA5E80" FromRole="Purchase" ToRole="Supplier" />
+          <NavigationProperty Name="Unit" Relationship="Self.FK__Purchase__unitId__5BE2A6F2" FromRole="Purchase" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Countries" Relationship="Self.FK__Country__regionI__0519C6AF" FromRole="Region" ToRole="Country" />
+        </EntityType>
+        <EntityType Name="Religion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__religi__20C1E124" FromRole="Religion" ToRole="Employee" />
+          <NavigationProperty Name="Suppliers" Relationship="Self.FK__Supplier__religi__5441852A" FromRole="Religion" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="unitId" Type="Int32" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__productS__6477ECF3" FromRole="Stock" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="addedBy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="nationalIdNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="dateOfBirth" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="genderId" Type="Int32" />
+          <Property Name="departmentId" Type="Int32" />
+          <Property Name="designationId" Type="Int32" />
+          <Property Name="religionId" Type="Int32" />
+          <Property Name="cityId" Type="Int32" />
+          <Property Name="orgainzationId" Type="Int32" />
+          <Property Name="SupplierAddedDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Boolean" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Supplier__cityId__5535A963" FromRole="Supplier" ToRole="City" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Supplier__depart__52593CB8" FromRole="Supplier" ToRole="Department" />
+          <NavigationProperty Name="Designation" Relationship="Self.FK__Supplier__design__534D60F1" FromRole="Supplier" ToRole="Designation" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK__Supplier__gender__5070F446" FromRole="Supplier" ToRole="Gender" />
+          <NavigationProperty Name="Organization" Relationship="Self.FK__Supplier__orgain__5165187F" FromRole="Supplier" ToRole="Organization" />
+          <NavigationProperty Name="Purchases" Relationship="Self.FK__Purchase__suppli__59FA5E80" FromRole="Supplier" ToRole="Purchase" />
+          <NavigationProperty Name="Religion" Relationship="Self.FK__Supplier__religi__5441852A" FromRole="Supplier" ToRole="Religion" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__unitId__66603565" FromRole="Unit" ToRole="Orders" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__unitId__4222D4EF" FromRole="Unit" ToRole="Product" />
+          <NavigationProperty Name="Purchases" Relationship="Self.FK__Purchase__unitId__5BE2A6F2" FromRole="Unit" ToRole="Purchase" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__roleId__2F10007B" FromRole="UserRole" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="roleId" Type="Int32" />
+          <Property Name="empid" Type="Int32" />
+          <Property Name="addedBy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="userAddedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Users__empid__300424B4" FromRole="Users" ToRole="Employee" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK__Users__roleId__2F10007B" FromRole="Users" ToRole="UserRole" />
+        </EntityType>
+        <Association Name="FK__Product__brandId__412EB0B6">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="brandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__catagor__403A8C7D">
+          <End Role="Catagory" Type="Self.Catagory" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catagory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="catagoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__countryId__09DE7BCC">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__cityId__21B6055D">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="cityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplier__cityId__5535A963">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="cityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Country__regionI__0519C6AF">
+          <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+          <End Role="Country" Type="Self.Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Country">
+              <PropertyRef Name="regionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__depart__1ED998B2">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="departmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplier__depart__52593CB8">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="departmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__design__1FCDBCEB">
+          <End Role="Designation" Type="Self.Designation" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designation">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="designationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplier__design__534D60F1">
+          <End Role="Designation" Type="Self.Designation" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designation">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="designationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__gender__1DE57479">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="genderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__religi__20C1E124">
+          <End Role="Religion" Type="Self.Religion" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Religion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="religionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employeet__empId__267ABA7A">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="EmployeetImage" Type="Self.EmployeetImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EmployeetImage">
+              <PropertyRef Name="empId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__empid__4316F928">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="empid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__empid__300424B4">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="empid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplier__gender__5070F446">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="genderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__productI__656C112C">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__productS__6477ECF3">
+          <End Role="Stock" Type="Self.Stock" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="productStockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__unitId__66603565">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="unitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplier__orgain__5165187F">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="orgainzationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__unitId__4222D4EF">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="unitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductIm__produ__47DBAE45">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProductImage" Type="Self.ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProductImage">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Purchase__produc__5AEE82B9">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Purchase__suppli__59FA5E80">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="supplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Purchase__unitId__5BE2A6F2">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="unitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplier__religi__5441852A">
+          <End Role="Religion" Type="Self.Religion" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Religion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="religionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__roleId__2F10007B">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="roleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Brands" EntityType="Self.Brand" />
+          <EntitySet Name="Catagories" EntityType="Self.Catagory" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Designations" EntityType="Self.Designation" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="EmployeetImages" EntityType="Self.EmployeetImage" />
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Organizations" EntityType="Self.Organization" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductImages" EntityType="Self.ProductImage" />
+          <EntitySet Name="Purchases" EntityType="Self.Purchase" />
+          <EntitySet Name="Regions" EntityType="Self.Region" />
+          <EntitySet Name="Religions" EntityType="Self.Religion" />
+          <EntitySet Name="Stocks" EntityType="Self.Stock" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <EntitySet Name="Units" EntityType="Self.Unit" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Product__brandId__412EB0B6" Association="Self.FK__Product__brandId__412EB0B6">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__catagor__403A8C7D" Association="Self.FK__Product__catagor__403A8C7D">
+            <End Role="Catagory" EntitySet="Catagories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__countryId__09DE7BCC" Association="Self.FK__City__countryId__09DE7BCC">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__cityId__21B6055D" Association="Self.FK__Employee__cityId__21B6055D">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplier__cityId__5535A963" Association="Self.FK__Supplier__cityId__5535A963">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Supplier" EntitySet="Suppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Country__regionI__0519C6AF" Association="Self.FK__Country__regionI__0519C6AF">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="Country" EntitySet="Countries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__depart__1ED998B2" Association="Self.FK__Employee__depart__1ED998B2">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplier__depart__52593CB8" Association="Self.FK__Supplier__depart__52593CB8">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Supplier" EntitySet="Suppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__design__1FCDBCEB" Association="Self.FK__Employee__design__1FCDBCEB">
+            <End Role="Designation" EntitySet="Designations" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplier__design__534D60F1" Association="Self.FK__Supplier__design__534D60F1">
+            <End Role="Designation" EntitySet="Designations" />
+            <End Role="Supplier" EntitySet="Suppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__gender__1DE57479" Association="Self.FK__Employee__gender__1DE57479">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__religi__20C1E124" Association="Self.FK__Employee__religi__20C1E124">
+            <End Role="Religion" EntitySet="Religions" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employeet__empId__267ABA7A" Association="Self.FK__Employeet__empId__267ABA7A">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="EmployeetImage" EntitySet="EmployeetImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__empid__4316F928" Association="Self.FK__Product__empid__4316F928">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__empid__300424B4" Association="Self.FK__Users__empid__300424B4">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplier__gender__5070F446" Association="Self.FK__Supplier__gender__5070F446">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="Supplier" EntitySet="Suppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__productI__656C112C" Association="Self.FK__Orders__productI__656C112C">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__productS__6477ECF3" Association="Self.FK__Orders__productS__6477ECF3">
+            <End Role="Stock" EntitySet="Stocks" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__unitId__66603565" Association="Self.FK__Orders__unitId__66603565">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplier__orgain__5165187F" Association="Self.FK__Supplier__orgain__5165187F">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Supplier" EntitySet="Suppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__unitId__4222D4EF" Association="Self.FK__Product__unitId__4222D4EF">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductIm__produ__47DBAE45" Association="Self.FK__ProductIm__produ__47DBAE45">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductImage" EntitySet="ProductImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Purchase__produc__5AEE82B9" Association="Self.FK__Purchase__produc__5AEE82B9">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Purchase__suppli__59FA5E80" Association="Self.FK__Purchase__suppli__59FA5E80">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Purchase__unitId__5BE2A6F2" Association="Self.FK__Purchase__unitId__5BE2A6F2">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplier__religi__5441852A" Association="Self.FK__Supplier__religi__5441852A">
+            <End Role="Religion" EntitySet="Religions" />
+            <End Role="Supplier" EntitySet="Suppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__roleId__2F10007B" Association="Self.FK__Users__roleId__2F10007B">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ShopModelStoreContainer" CdmEntityContainer="ShopEntities">
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="ShopModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Catagories">
+            <EntityTypeMapping TypeName="ShopModel.Catagory">
+              <MappingFragment StoreEntitySet="Catagory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="ShopModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="ShopModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="regionId" ColumnName="regionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="ShopModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Designations">
+            <EntityTypeMapping TypeName="ShopModel.Designation">
+              <MappingFragment StoreEntitySet="Designation">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="ShopModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="slary" ColumnName="slary" />
+                <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+                <ScalarProperty Name="nationalIdNumber" ColumnName="nationalIdNumber" />
+                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+                <ScalarProperty Name="genderId" ColumnName="genderId" />
+                <ScalarProperty Name="departmentId" ColumnName="departmentId" />
+                <ScalarProperty Name="designationId" ColumnName="designationId" />
+                <ScalarProperty Name="religionId" ColumnName="religionId" />
+                <ScalarProperty Name="cityId" ColumnName="cityId" />
+                <ScalarProperty Name="joinDate" ColumnName="joinDate" />
+                <ScalarProperty Name="employeeAddedDate" ColumnName="employeeAddedDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeetImages">
+            <EntityTypeMapping TypeName="ShopModel.EmployeetImage">
+              <MappingFragment StoreEntitySet="EmployeetImage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="empId" ColumnName="empId" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="ShopModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ShopModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="productStockId" ColumnName="productStockId" />
+                <ScalarProperty Name="unitId" ColumnName="unitId" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organizations">
+            <EntityTypeMapping TypeName="ShopModel.Organization">
+              <MappingFragment StoreEntitySet="Organization">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ShopModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="tag" ColumnName="tag" />
+                <ScalarProperty Name="catagoryId" ColumnName="catagoryId" />
+                <ScalarProperty Name="brandId" ColumnName="brandId" />
+                <ScalarProperty Name="unitId" ColumnName="unitId" />
+                <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+                <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="lastUpdate" ColumnName="lastUpdate" />
+                <ScalarProperty Name="productAddedDate" ColumnName="productAddedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductImages">
+            <EntityTypeMapping TypeName="ShopModel.ProductImage">
+              <MappingFragment StoreEntitySet="ProductImage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchases">
+            <EntityTypeMapping TypeName="ShopModel.Purchase">
+              <MappingFragment StoreEntitySet="Purchase">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="purchaseDate" ColumnName="purchaseDate" />
+                <ScalarProperty Name="unitId" ColumnName="unitId" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="supplierId" ColumnName="supplierId" />
+                <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="ShopModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Religions">
+            <EntityTypeMapping TypeName="ShopModel.Religion">
+              <MappingFragment StoreEntitySet="Religion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocks">
+            <EntityTypeMapping TypeName="ShopModel.Stock">
+              <MappingFragment StoreEntitySet="Stock">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="unitId" ColumnName="unitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="ShopModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+                <ScalarProperty Name="nationalIdNumber" ColumnName="nationalIdNumber" />
+                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+                <ScalarProperty Name="genderId" ColumnName="genderId" />
+                <ScalarProperty Name="departmentId" ColumnName="departmentId" />
+                <ScalarProperty Name="designationId" ColumnName="designationId" />
+                <ScalarProperty Name="religionId" ColumnName="religionId" />
+                <ScalarProperty Name="cityId" ColumnName="cityId" />
+                <ScalarProperty Name="orgainzationId" ColumnName="orgainzationId" />
+                <ScalarProperty Name="SupplierAddedDate" ColumnName="SupplierAddedDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="ShopModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="ShopModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ShopModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+                <ScalarProperty Name="userAddedDate" ColumnName="userAddedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

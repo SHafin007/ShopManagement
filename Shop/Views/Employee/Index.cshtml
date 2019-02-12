@@ -1,0 +1,138 @@
+﻿@model IEnumerable<Shop.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Image</th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.slary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.addedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nationalIdNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.joinDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeAddedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designation.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Religion.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @{ 
+                if(item.EmployeetImages.Count<=0)
+                {
+                   
+                }
+                else
+                {
+                    var pi = item.EmployeetImages.First();
+                    @Html.Raw("<img src=\"../Photos/Employee/"+pi.id.ToString()+"_"+pi.image+"\" />")
+                }
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.slary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.addedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nationalIdNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateOfBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.joinDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeAddedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Religion.name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

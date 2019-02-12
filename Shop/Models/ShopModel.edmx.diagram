@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8f45138c0d1e47819e82879d8c191b72" Name="Diagram1" ZoomLevel="111">
+        <EntityTypeShape EntityType="ShopModel.Brand" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Catagory" Width="1.5" PointX="6" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.City" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Country" Width="1.5" PointX="1.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Department" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Designation" Width="1.5" PointX="0.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Employee" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.EmployeetImage" Width="1.5" PointX="5.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Gender" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Order" Width="1.5" PointX="10.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Organization" Width="1.5" PointX="3.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Product" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.ProductImage" Width="1.5" PointX="10.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Purchase" Width="1.5" PointX="13.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Region" Width="1.5" PointX="1.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Religion" Width="1.5" PointX="0.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Stock" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Supplier" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.Unit" Width="1.5" PointX="6" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.UserRole" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopModel.User" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="ShopModel.FK__Product__brandId__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Product__catagor__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__City__countryId__09DE7BCC" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Employee__cityId__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Supplier__cityId__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Country__regionI__0519C6AF" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Employee__depart__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Supplier__depart__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Employee__design__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Supplier__design__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Employee__gender__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Employee__religi__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Employeet__empId__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Product__empid__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Users__empid__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Supplier__gender__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Orders__productI__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Orders__productS__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Orders__unitId__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Supplier__orgain__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Product__unitId__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__ProductIm__produ__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Purchase__produc__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Purchase__suppli__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Purchase__unitId__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Supplier__religi__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopModel.FK__Users__roleId__2F10007B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

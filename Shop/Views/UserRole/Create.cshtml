@@ -1,0 +1,69 @@
+﻿@model Shop.Models.UserRole
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+
+
+
+
+
+
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Add New</strong> 
+                    </div>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="card-body card-block">
+                                <div class="has-success form-group">
+                                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "form-control-label" })
+                                    <div class="col col-sm-12">
+                                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "is-valid form-control-success form-control" } })
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-primary btn-lg" />
+                                    <a class="btn btn-primary btn-lg" href="/UserRole/Index/">Back To Index</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div><!-- .animated -->
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+

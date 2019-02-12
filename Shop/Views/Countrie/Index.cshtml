@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Shop.Models.Country>
+
+@{
+    ViewBag.Title = "List Of Countries";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2 class="breadcrumb" align="center">Country List</h2>
+
+<a class="btn btn-primary btn-block" href="/Countrie/Create/">Add New</a>
+
+    <table id="bootstrap-data-table" class="table table-condensed table-bordered">
+        <thead class="thead-dark table-bordered">
+            <tr>
+                <th>#</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Region.name)
+                </th>
+                <th>Manage</th>
+            </tr>
+            </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Region.name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary btn-sm" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info btn-sm" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+            </tbody>
+
+</table>
